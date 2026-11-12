@@ -1,0 +1,63 @@
+@import "tailwindcss";
+@import "leaflet/dist/leaflet.css";
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  background: #0b1020;
+  color: #e5e7eb;
+}
+
+@keyframes sos-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 28px rgba(220, 38, 38, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(220, 38, 38, 0);
+  }
+}
+
+.sos-pulse {
+  animation: sos-pulse 1.6s infinite;
+}
+
+@layer components {
+  .card {
+    @apply rounded-2xl border border-white/10 bg-white/5 backdrop-blur p-5 shadow-lg;
+  }
+  .btn,
+  .btn-primary,
+  .btn-secondary,
+  .btn-success {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-primary {
+    @apply bg-red-600 hover:bg-red-500 text-white;
+  }
+  .btn-secondary {
+    @apply bg-white/10 hover:bg-white/20 text-white;
+  }
+  .btn-success {
+    @apply bg-emerald-600 hover:bg-emerald-500 text-white;
+  }
+  .input {
+    @apply w-full rounded-xl border border-white/10 bg-black/30 px-3 py-2.5 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-red-500/60;
+  }
+  .label {
+    @apply block text-xs font-semibold uppercase tracking-wide text-slate-400 mb-1;
+  }
+}
+
+.leaflet-container {
+  background: #0b1020;
+  border-radius: 1rem;
+}
+.leaflet-div-icon {
+  background: transparent;
+  border: none;
+}
